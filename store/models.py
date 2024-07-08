@@ -1,9 +1,37 @@
 from django.db import models
+from django.contrib.auth.models import User 
 import datetime
 
 #Categorias de productos 
+
+
+class CajaSorpresa(models.Model):
+    nombre = models.CharField(max_length=100)
+
+class Usuario(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    caja_sorpresa = models.OneToOneField(CajaSorpresa, on_delete=models.CASCADE)
+
+class Producto(models.Model):
+    nombre = models.CharField(max_length=100)
+
+class Pedido(models.Model):
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    caja_sorpresa = models.OneToOneField(CajaSorpresa, on_delete=models.CASCADE)
+
+class DetallesPedido(models.Model):
+    producto = models.OneToOneField(Producto, on_delete=models.CASCADE)
+    cantidad = models.IntegerField()
+
+class PedidoDetalles(models.Model):
+    pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
+    detalles_pedido = models.ForeignKey(DetallesPedido, on_delete=models.CASCADE)
+
+
+
+
 class Category (models.Model):
-    name = models.CharField(max_length=50)
+    ame = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
@@ -42,3 +70,4 @@ class Order(models.Model):
 
     def __str__(self):
         return self.product
+    

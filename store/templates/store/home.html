@@ -1,69 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
-        .container {
-            display: flex;
-            align-items: center;
-            border: 1px solid #ccc;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .image {
-            margin-left: 20px;
-        }
-        .content {
-            text-align: center;
-        }
-        .logo {
-            width: 100px;
-            height: auto;
-        }
-        .title {
-            font-size: 24px;
-            margin: 10px 0;
-        }
-        .buy-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .buy-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
+    <title>Joyería</title>
+    <link rel="stylesheet" href="\ecom\ecom\static\css">
 <body>
-    <body>
-        <div class="container">
-            <div class="image">
-                <img src="imagen.jpg" alt="Imagen de Inicio" width="200">
-            </div>
-            <div class="content">
-                <img src="logotipo.png" alt="Logotipo" class="logo">
-                <div class="title">Nombre del eCommerce</div>
-                <a href="#" class="buy-button">Compra Ya</a>
-            </div>
-        </div>
-    </body>
+    <header>
+        <h1>Joyería</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="producto.html">Producto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Contenido Principal -->
+        <section id="inicio">
+            <h2>Bienvenidos a nuestra tienda de joyería</h2>
+            <p>Aquí encontrarás las mejores joyas.</p>
+        </section>
+
+        <section id="producto">
+            <h2>Detalles del Producto</h2>
+            <p>Descripción del producto aquí.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Joyería</p>
+    </footer>
 </body>
 </html>
