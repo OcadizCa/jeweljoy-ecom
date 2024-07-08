@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-(2_up6cmk!1q&5d1e-_pxlegt3tjvt5s&dssqpcel5s&9a)0nw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', '192.168.1.73']
 
 
 # Application definition
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'ecom.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,10 +77,17 @@ WSGI_APPLICATION = 'ecom.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',  # o 'django.db.backends.postgresql', 'django.db.backends.mysql'
+        'NAME': BASE_DIR / "db.sqlite3",  # Para SQLite
+        # Para PostgreSQL o MySQL
+        'NAME': 'yourdbname',
+        'USER': 'yourdbuser',
+        'PASSWORD': 'yourdbpassword',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation
