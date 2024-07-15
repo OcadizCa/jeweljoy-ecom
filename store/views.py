@@ -1,10 +1,24 @@
-# store/views.py
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product, Category
+from django.views.generic import ListView, CreateView
 from .forms import ProductForm
-from rest_framework import viewsets # type: ignore
-from .models import Producto
+from rest_framework import viewsets
+from .serializers import ProductSerializer
 
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+class ProductListView(ListView):
+    model = Product
+    template_name = 'store/product_list.html'
+    context_object_name = 'products'
+
+class ProductCreateView(CreateView):
+    model = Product
+    fields = ['name', 'description', 'image', 'price']
+    template_name = 'store/product_form.html'
+    success_url = '/store/products/'
 
 def home(request):
     return render(request, 'store/home.html')
@@ -50,4 +64,3 @@ def product_delete(request, pk):
 
 def products(request):
     return render(request, 'store/products.html')
-
