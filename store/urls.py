@@ -1,5 +1,6 @@
 # store/urls.py
-from django.urls import path
+from django.db import router
+from django.urls import include, path
 from . import views
 
 urlpatterns = [
@@ -10,5 +11,7 @@ urlpatterns = [
     path('product/new/', views.product_create, name='product_create'),
     path('product/<int:pk>/edit/', views.product_update, name='product_update'),
     path('product/<int:pk>/delete/', views.product_delete, name='product_delete'),
-    path('home/',views.home, name="Home")
+    path('home/',views.home, name="Home"),
+    path('',views.products,name="Products"),
+    path('products-api/', include(router.urls)),
 ]

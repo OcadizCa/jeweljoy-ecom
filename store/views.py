@@ -2,6 +2,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product, Category
 from .forms import ProductForm
+from rest_framework import viewsets # type: ignore
+from .models import Producto
 
 
 def home(request):
@@ -45,3 +47,7 @@ def product_delete(request, pk):
         product.delete()
         return redirect('product_list')
     return render(request, 'store/product_confirm_delete.html', {'product': product})
+
+def products(request):
+    return render(request, 'store/products.html')
+
